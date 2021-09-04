@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather app</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="main-weather-container">
+      <ul class="main-weather-list">
+        <div class="important-weather-container">
+          <li><h1 id="main-weather-location"></h1></li>
+          <li><h1 id="main-weather-temp"></h1></li>
+        </div>
+        <div class="main-weather-condition-container">
+          <li id="main-weather-condition"><p></p></li>
+          <li><img id="weather-image" src=""></li>
+        </div>
+        <div class="main-weather-time-container">
+          <li id="main-weather-date"></li>
+          <li id="main-weather-time"></li>
+        </div>
+        <div class="main-weather-function-container">
+          <li id="temp-display" value="metric"><p>Metric/Imperial</p></li>
+          <li>
+            <input type="text" name="location" id="location" placeholder="Search location"><label for="location"><i id="search-icon" class="fas fa-search"></i></label>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <div id="map">
+  
+    </div>
+  </div>
+  <div class="side-weather-container">
+    <div class="small-info-container">
+      <i class="fas fa-thermometer-three-quarters"></i>
+      <div class="small-text-container">
+        <p>Feels like</p>
+        <p id="feeltemp-degree"></p>
+      </div>
+    </div>
+    <div class="small-info-container">
+      <i class="fas fa-tint"></i>
+      <div class="small-text-container">
+        <p>Humidity</p>
+        <p id="humidity-perc"></p>
+      </div>
+    </div>
+    <div class="small-info-container">
+      <i class="fas fa-cloud-rain"></i>
+      <div class="small-text-container">
+        <p>Max Temp</p>
+        <p id="max-temp"></p>
+      </div>
+    </div>
+    <div class="small-info-container">
+      <i class="fas fa-wind"></i>
+      <div class="small-text-container">
+        <p>Wind</p>
+        <p id="wind-speed"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function initMap (weatherData) {
+      let uluru = {lat: weatherData.coord.lat, lng: weatherData.coord.lon};
+      let map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 4, center: uluru}
+      );
+      let marker = new google.maps.Marker({position: uluru, map: map})
+  }
+  </script>
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCrNuLBDn5EX_dtignOQr1iR1DsUO8sM&callback=initMap"
+  type="text/javascript"></script>
+  <script src="main.js"></script>
+</body>
+</html>
