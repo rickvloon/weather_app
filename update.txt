@@ -1,2 +1,0 @@
-styling done for main weather info
-hierna javascript done beanbro
